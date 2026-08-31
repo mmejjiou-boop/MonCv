@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lettre de motivation — Mohamed-Amine Mejjiou</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --blue: #1f6fd6;
+    --ink: #202124;
+    --muted: #5a5f66;
+    --line: #e2e4e8;
+    --paper: #ffffff;
+  }
+
+  *{ box-sizing: border-box; }
+
+  body{
+    margin: 0;
+    background: #eef0f3;
+    font-family: 'Poppins', sans-serif;
+    color: var(--ink);
+  }
+
+  .page{
+    max-width: 780px;
+    margin: 32px auto;
+    background: var(--paper);
+    padding: 56px 60px;
+    box-shadow: 0 10px 40px rgba(32,33,36,0.12);
+  }
+
+  header{
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 20px;
+    margin-bottom: 8px;
+  }
+
+  header h1{
+    font-size: 1.7rem;
+    font-weight: 800;
+    letter-spacing: 0.01em;
+    margin: 0;
+  }
+
+  .logo{
+    font-weight: 800;
+    font-size: 1.5rem;
+    color: var(--ink);
+    display: flex;
+    align-items: baseline;
+    gap: 2px;
+    white-space: nowrap;
+  }
+
+  .logo span{ color: #d7df23; }
+
+  .subtitle{
+    font-style: italic;
+    color: var(--muted);
+    font-size: 0.95rem;
+    margin: 4px 0 18px;
+  }
+
+  .rule{
+    height: 3px;
+    background: var(--blue);
+    border: none;
+    margin: 0 0 22px;
+  }
+
+  .contact-box{
+    display: grid;
+    grid-template-columns: 1fr auto auto;
+    border: 1px solid var(--line);
+    font-size: 0.85rem;
+    margin-bottom: 30px;
+  }
+
+  .contact-box div{
+    padding: 12px 16px;
+    border-right: 1px solid var(--line);
+    display: flex;
+    align-items: center;
+  }
+
+  .contact-box div:last-child{ border-right: none; }
+
+  .contact-box a{ color: var(--blue); text-decoration: none; }
+
+  .meta-row{
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 22px;
+    font-size: 0.9rem;
+  }
+
+  .meta-row .to{ font-weight: 700; }
+  .meta-row .date{ color: var(--muted); }
+
+  .object-line{
+    font-size: 0.92rem;
+    margin-bottom: 26px;
+  }
+
+  .object-line strong{ font-weight: 700; }
+
+  .letter-body p{
+    font-size: 0.92rem;
+    line-height: 1.75;
+    color: var(--ink);
+    margin: 0 0 18px;
+    text-align: left;
+  }
+
+  .letter-body strong{ font-weight: 700; }
+
+  .signature{
+    margin-top: 30px;
+    font-size: 0.92rem;
+  }
+
+  .signature .name{
+    font-weight: 700;
+    margin-top: 6px;
+  }
+
+  @media (max-width: 600px){
+    .page{ padding: 36px 24px; }
+    header{ flex-direction: column; }
+    .contact-box{ grid-template-columns: 1fr; }
+    .contact-box div{ border-right: none; border-bottom: 1px solid var(--line); }
+    .contact-box div:last-child{ border-bottom: none; }
+  }
+
+  @media print{
+    body{ background: var(--paper); }
+    .page{ box-shadow: none; margin: 0; padding: 40px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="page">
+
+  <header>
+    <h1>MEJJIOU Mohamed-Amine</h1>
+    <div class="logo">coda<span>_</span></div>
+  </header>
+
+  <p class="subtitle">Étudiant en Bachelor Développement Web Full-Stack</p>
+
+  <hr class="rule">
+
+  <div class="contact-box">
+    <div>9 rue Léopold Sédar Senghor, 45100 Orléans</div>
+    <div><a href="mailto:mmejjiou@gmail.com">mmejjiou@gmail.com</a></div>
+    <div>07 82 93 21 25</div>
+  </div>
+
+  <div class="meta-row">
+    <span class="to">À l'attention du service Recrutement</span>
+    <span class="date">Orléans, le 27 juillet 2026</span>
+  </div>
+
+  <p class="object-line"><strong>Objet :</strong> Candidature à un poste en alternance – Développeur Full-Stack</p>
+
+  <div class="letter-body">
+    <p>Madame, Monsieur,</p>
+
+    <p>Actuellement étudiant en Bachelor Développeur Web et Web Mobile (DWWM), je suis à la recherche d'une alternance d'une durée d'un ou deux ans à partir de septembre 2026, selon un rythme d'une semaine en formation et de trois semaines en entreprise.</p>
+
+    <p>Sur le plan technique, je maîtrise le développement <strong>front-end</strong> avec HTML5, CSS3, JavaScript ainsi que les frameworks et bibliothèques React et Tailwind CSS. Je réalise également des maquettes et prototypes d'interface avec Figma.</p>
+
+    <p>Côté <strong>back-end</strong>, je développe en PHP 8 avec le framework Symfony 7 et l'ORM Doctrine, ainsi qu'en Node.js, et je conçois des bases de données relationnelles MySQL modélisées selon la méthode Merise (MCD, MLD, MPD) et UML. J'ai mis en œuvre ces compétences sur des applications complètes : authentification et gestion des rôles avec création d'API REST (API Platform et authentification JWT), intégration de vues Twig, visualisation de données avec Chart.js. J'utilise quotidiennement Git et GitHub pour le versionnement, VS Code comme environnement de développement, ainsi que Figma, Composer, npm et MAMP. Habitué à différents environnements de travail, je m'intègre rapidement à une équipe.</p>
+
+    <p>Si je vous adresse ma candidature, c'est parce que je recherche un environnement où je pourrai progresser et consolider les bases que j'ai déjà acquises.</p>
+
+    <p>Je serais ravi d'échanger avec vous lors d'un entretien afin de vous présenter plus en détail mon parcours et ma motivation. Dans l'attente de votre retour, je vous prie d'agréer, Madame, Monsieur, l'expression de mes salutations distinguées.</p>
+
+    <p>Cordialement,</p>
+  </div>
+
+  <div class="signature">
+    <div class="name">MEJJIOU Mohamed-Amine</div>
+  </div>
+
+</div>
+
+</body>
+</html>

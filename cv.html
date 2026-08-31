@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mohamed-Amine Mejjiou — CV</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --navy: #2b3a55;
+    --navy-dark: #212e45;
+    --ink: #2b2b2b;
+    --muted: #6b7280;
+    --line: #d9dde3;
+    --paper: #ffffff;
+  }
+
+  *{ box-sizing: border-box; }
+
+  body{
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    color: var(--ink);
+    background: #eef0f3;
+  }
+
+  .page{
+    max-width: 1000px;
+    margin: 32px auto;
+    background: var(--paper);
+    display: grid;
+    grid-template-columns: 300px 1fr;
+    box-shadow: 0 10px 40px rgba(33,46,69,0.15);
+    min-height: 1250px;
+  }
+
+  /* ---------- Sidebar ---------- */
+  aside{
+    background: var(--navy);
+    color: #f2f4f8;
+    padding: 40px 30px;
+  }
+
+  .photo{
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    background: #4a5b7c;
+    margin: 0 auto 30px;
+    display: block;
+    object-fit: cover;
+    border: 3px solid rgba(255,255,255,0.15);
+  }
+
+  aside h2{
+    font-size: 0.95rem;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+    margin: 0 0 12px;
+    padding-bottom: 8px;
+    border-bottom: 2px solid rgba(255,255,255,0.35);
+  }
+
+  .side-section{ margin-bottom: 34px; }
+  .side-section:last-child{ margin-bottom: 0; }
+
+  .side-section p{
+    margin: 0 0 10px;
+    font-size: 0.85rem;
+    line-height: 1.5;
+    color: #d7dcea;
+  }
+
+  .side-section ul{
+    list-style: none;
+    margin: 0 0 14px;
+    padding: 0;
+  }
+
+  .side-section ul:last-child{ margin-bottom: 0; }
+
+  .side-section li{
+    font-size: 0.85rem;
+    line-height: 1.7;
+    color: #d7dcea;
+    position: relative;
+    padding-left: 14px;
+  }
+
+  .side-section li::before{
+    content: "";
+    position: absolute;
+    left: 0; top: 10px;
+    width: 5px; height: 5px;
+    border-radius: 50%;
+    background: #8fa0c9;
+  }
+
+  .side-sub{
+    font-size: 0.78rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    color: #9fb0d1;
+    margin: 14px 0 6px;
+  }
+
+  .side-sub:first-of-type{ margin-top: 0; }
+
+  .interests-grid{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0 16px;
+  }
+
+  /* ---------- Main content ---------- */
+  main{ padding: 44px 44px 50px; }
+
+  .identity h1{
+    font-size: 1.9rem;
+    font-weight: 800;
+    margin: 0 0 2px;
+    color: var(--navy-dark);
+    letter-spacing: 0.01em;
+  }
+
+  .identity .role{
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: var(--navy);
+    margin: 0 0 14px;
+  }
+
+  .identity .summary{
+    font-size: 0.88rem;
+    line-height: 1.65;
+    color: var(--muted);
+    margin: 0 0 34px;
+    max-width: 70ch;
+  }
+
+  main h2{
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: var(--navy-dark);
+    margin: 0 0 18px;
+    padding-bottom: 8px;
+    border-bottom: 2px solid var(--line);
+  }
+
+  section{ margin-bottom: 32px; }
+  section:last-child{ margin-bottom: 0; }
+
+  /* Formation timeline — this content IS a sequence, so vertical line + markers earn their place */
+  .timeline{
+    position: relative;
+    padding-left: 26px;
+  }
+
+  .timeline::before{
+    content: "";
+    position: absolute;
+    left: 5px; top: 6px; bottom: 6px;
+    width: 2px;
+    background: var(--line);
+  }
+
+  .timeline-item{
+    position: relative;
+    margin-bottom: 20px;
+  }
+
+  .timeline-item:last-child{ margin-bottom: 0; }
+
+  .timeline-item::before{
+    content: "";
+    position: absolute;
+    left: -26px; top: 3px;
+    width: 11px; height: 11px;
+    border: 2px solid var(--navy);
+    background: var(--paper);
+  }
+
+  .timeline-date{
+    font-size: 0.78rem;
+    font-weight: 700;
+    color: var(--navy);
+    letter-spacing: 0.03em;
+  }
+
+  .timeline-item .school{
+    font-size: 0.85rem;
+    color: var(--muted);
+    margin: 2px 0;
+  }
+
+  .timeline-item .diploma{
+    font-size: 0.92rem;
+    font-weight: 600;
+    color: var(--ink);
+  }
+
+  /* Certification */
+  .cert-title{
+    font-size: 0.92rem;
+    font-weight: 700;
+    margin: 0 0 4px;
+  }
+
+  .cert-desc{
+    font-size: 0.85rem;
+    color: var(--muted);
+    line-height: 1.6;
+    margin: 0;
+  }
+
+  /* Projets */
+  .projects-grid{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+  }
+
+  .project h3{
+    font-size: 0.92rem;
+    font-weight: 700;
+    margin: 0 0 6px;
+  }
+
+  .project p{
+    font-size: 0.84rem;
+    color: var(--muted);
+    line-height: 1.55;
+    margin: 0 0 10px;
+  }
+
+  .tools-label{
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+    color: var(--navy);
+    margin: 0 0 4px;
+  }
+
+  .project ul{
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .project li{
+    font-size: 0.84rem;
+    color: var(--ink);
+  }
+
+  /* Expériences */
+  .exp-item{ margin-bottom: 22px; }
+  .exp-item:last-child{ margin-bottom: 0; }
+
+  .exp-item h3{
+    font-size: 0.94rem;
+    font-weight: 700;
+    margin: 0 0 8px;
+  }
+
+  .exp-item ul{
+    margin: 0;
+    padding-left: 18px;
+  }
+
+  .exp-item li{
+    font-size: 0.85rem;
+    color: var(--muted);
+    line-height: 1.7;
+  }
+
+  @media (max-width: 720px){
+    .page{ grid-template-columns: 1fr; }
+    .projects-grid{ grid-template-columns: 1fr; }
+    main{ padding: 34px 24px; }
+  }
+
+  @media print{
+    body{ background: var(--paper); }
+    .page{ box-shadow: none; margin: 0; }
+  }
+</style>
+</head>
+<body>
+
+<div class="page">
+
+  <aside>
+    <div class="photo" role="img" aria-label="Photo de profil"></div>
+
+    <div class="side-section">
+      <h2>Contact</h2>
+      <p>9 rue Léopold Sédar Senghor<br>45100 Orléans</p>
+      <p>mmejjiou@gmail.com</p>
+      <p>07 82 93 21 25</p>
+    </div>
+
+    <div class="side-section">
+      <h2>Compétences</h2>
+      <div class="side-sub">Front-end</div>
+      <ul>
+        <li>HTML5 / CSS3</li>
+        <li>JavaScript (TypeScript)</li>
+      </ul>
+      <div class="side-sub">Back-end</div>
+      <ul>
+        <li>PHP (Symfony)</li>
+        <li>SQL</li>
+        <li>JavaScript (TypeScript)</li>
+      </ul>
+      <div class="side-sub">Outils</div>
+      <ul>
+        <li>Git / GitHub</li>
+        <li>Figma</li>
+      </ul>
+    </div>
+
+    <div class="side-section">
+      <h2>Langues</h2>
+      <p>Français : courant</p>
+      <p>Arabe : courant</p>
+      <p>Anglais : niveau intermédiaire (A2/B1)</p>
+    </div>
+
+    <div class="side-section">
+      <h2>Centres d'intérêt</h2>
+      <div class="interests-grid">
+        <div>
+          <div class="side-sub">Qualités</div>
+          <ul>
+            <li>Sympathique</li>
+            <li>Dynamique</li>
+            <li>Ponctuel</li>
+            <li>Esprit d'équipe</li>
+          </ul>
+        </div>
+        <div>
+          <div class="side-sub">Hobbies</div>
+          <ul>
+            <li>Lecture</li>
+            <li>Échecs</li>
+            <li>Cuisine</li>
+            <li>Musique</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </aside>
+
+  <main>
+    <div class="identity">
+      <h1>Mohamed-Amine Mejjiou</h1>
+      <p class="role">Développeur Full Stack </p>
+      <p class="summary">
+        Développeur full stack junior avec des compétences en HTML, CSS, JavaScript et PHP.
+        Je conçois des interfaces web modernes, responsive et optimisées pour l'expérience utilisateur.
+        Actuellement en formation, je recherche une alternance pour renforcer mes compétences et participer à des projets concrets.
+      </p>
+    </div>
+
+    <section>
+      <h2>Formation</h2>
+      <div class="timeline">
+        <div class="timeline-item">
+          <div class="timeline-date">2026 – 2027</div>
+          <div class="school">CODA Orléans</div>
+          <div class="diploma">Bachelor Développeur Web</div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-date">2025 – 2026</div>
+          <div class="school">CEFIM (Skolae) Tours</div>
+          <div class="diploma">Bachelor Développeur Web</div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-date">2024 – 2025</div>
+          <div class="school">WLC Marrakech</div>
+          <div class="diploma">Formation Coding</div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2>Certification</h2>
+      <div class="cert-title">Introduction to Web Accessibility — W3C via edX (2026)</div>
+      <p class="cert-desc">
+        Formation de sensibilisation à l'accessibilité numérique : principes des WCAG, bonnes pratiques pour le développement web et ses enjeux.
+      </p>
+    </section>
+
+    <section>
+      <h2>Projets</h2>
+      <div class="projects-grid">
+        <div class="project">
+          <h3>Automatisation Montessori Store</h3>
+          <p>Script d'automatisation du réapprovisionnement et optimisation de la gestion des stocks.</p>
+          <div class="tools-label">Outils utilisés</div>
+          <ul><li>Symfony, Twig, Tailwind</li></ul>
+        </div>
+        <div class="project">
+          <h3>Création d'un site de nettoyage</h3>
+          <p>Création complète du site, design responsive.</p>
+          <div class="tools-label">Outils utilisés</div>
+          <ul><li>HTML, CSS, JS</li></ul>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2>Expériences</h2>
+      <div class="exp-item">
+        <h3>Alternant — Montessori Store (2025 – 2026)</h3>
+        <ul>
+          <li>Maintenance et mise à jour de sites web</li>
+          <li>Correction de bugs Symfony et Twig</li>
+          <li>Ajout de contenus et optimisation des pages</li>
+          <li>Participation à l'amélioration de l'expérience utilisateur</li>
+        </ul>
+      </div>
+      <div class="exp-item">
+        <h3>Stage — CNRS (2022 – 2023)</h3>
+        <ul>
+          <li>Découverte du fonctionnement d'un laboratoire</li>
+          <li>Observation de projets scientifiques</li>
+          <li>Initiation à l'analyse et à la rigueur professionnelle</li>
+        </ul>
+      </div>
+    </section>
+  </main>
+
+</div>
+
+</body>
+</html>

@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mohamed-Amine Mejjiou — Candidature</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --navy: #2b3a55;
+    --navy-dark: #212e45;
+    --muted: #6b7280;
+    --line: #e2e4e8;
+    --paper: #ffffff;
+  }
+
+  *{ box-sizing: border-box; }
+
+  body{
+    margin: 0;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #eef0f3;
+    font-family: 'Poppins', sans-serif;
+    color: var(--navy-dark);
+  }
+
+  .card{
+    background: var(--paper);
+    padding: 48px 44px;
+    border-radius: 4px;
+    box-shadow: 0 10px 40px rgba(33,46,69,0.15);
+    max-width: 420px;
+    width: 100%;
+    text-align: center;
+  }
+
+  h1{
+    font-size: 1.4rem;
+    font-weight: 800;
+    margin: 0 0 6px;
+  }
+
+  .role{
+    font-size: 0.9rem;
+    color: var(--muted);
+    margin: 0 0 32px;
+  }
+
+  .links{
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+  }
+
+  .links a{
+    display: block;
+    padding: 14px 20px;
+    border: 2px solid var(--navy);
+    border-radius: 4px;
+    color: var(--navy);
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.92rem;
+    transition: background 0.15s ease, color 0.15s ease;
+  }
+
+  .links a:hover, .links a:focus-visible{
+    background: var(--navy);
+    color: #fff;
+    outline: none;
+  }
+
+  .links a.primary{
+    background: var(--navy);
+    color: #fff;
+  }
+
+  .links a.primary:hover{
+    background: var(--navy-dark);
+    border-color: var(--navy-dark);
+  }
+</style>
+</head>
+<body>
+
+<div class="card">
+  <h1>Mohamed-Amine Mejjiou</h1>
+  <p class="role">Développeur Web Full-Stack</p>
+
+  <div class="links">
+    <a class="primary" href="cv.html">Voir le CV</a>
+    <a href="lettre.html">Lettre de motivation</a>
+  </div>
+</div>
+
+</body>
+</html>
