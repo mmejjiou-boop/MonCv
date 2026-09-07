@@ -4,6 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Mohamed-Amine Mejjiou — Candidature</title>
+<meta name="description" content="Mohamed-Amine Mejjiou, développeur web full-stack junior à Orléans, recherche une alternance. CV, projets et contact.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&display=swap" rel="stylesheet">
@@ -48,7 +49,14 @@
   .role{
     font-size: 0.9rem;
     color: var(--muted);
-    margin: 0 0 32px;
+    margin: 0 0 18px;
+  }
+
+  .intro{
+    font-size: 0.85rem;
+    color: var(--muted);
+    line-height: 1.55;
+    margin: 0 0 28px;
   }
 
   .links{
@@ -84,6 +92,34 @@
     background: var(--navy-dark);
     border-color: var(--navy-dark);
   }
+
+  .divider{
+    border: none;
+    border-top: 1px solid var(--line);
+    margin: 26px 0 20px;
+  }
+
+  .contact{
+    display: flex;
+    justify-content: center;
+    gap: 18px;
+    flex-wrap: wrap;
+  }
+
+  .contact a{
+    font-size: 0.82rem;
+    font-weight: 600;
+    color: var(--muted);
+    text-decoration: none;
+    border-bottom: 1px solid transparent;
+    transition: color 0.15s ease, border-color 0.15s ease;
+  }
+
+  .contact a:hover, .contact a:focus-visible{
+    color: var(--navy);
+    border-color: var(--navy);
+    outline: none;
+  }
 </style>
 </head>
 <body>
@@ -91,11 +127,24 @@
 <div class="card">
   <h1>Mohamed-Amine Mejjiou</h1>
   <p class="role">Développeur Web Full-Stack</p>
+  <p class="intro">
+    Basé à Orléans, en formation DWWM à École Coda.
+    Je cherche une alternance pour une durée de 1 ou 2 ans.
+  </p>
 
   <div class="links">
     <a class="primary" href="cv.html">Voir le CV</a>
     <a href="lettre.html">Lettre de motivation</a>
     <a href="projets.html">Mes projets</a>
+  </div>
+
+  <hr class="divider">
+
+  <div class="contact">
+    <a href="https://github.com/mmejjiou-boop" target="_blank" rel="noopener">GitHub</a>
+    <a href="https://www.linkedin.com/in/mohamed-amine-mejjiou-989b903b6/" target="_blank" rel="noopener">LinkedIn</a>
+    <a href="mailto:mmejjiou@gmail.com">Email</a>
+    <a href="tel:+33782932125">Téléphone</a>
   </div>
 </div>
 
