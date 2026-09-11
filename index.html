@@ -28,6 +28,16 @@
     background: #eef0f3;
     font-family: 'Poppins', sans-serif;
     color: var(--navy-dark);
+    overflow-x: hidden;
+  }
+
+  .layout{
+    display: flex;
+    align-items: center;
+    gap: 60px;
+    max-width: 900px;
+    width: 100%;
+    padding: 20px;
   }
 
   .card{
@@ -38,6 +48,7 @@
     max-width: 420px;
     width: 100%;
     text-align: center;
+    flex-shrink: 0;
   }
 
   h1{
@@ -120,33 +131,210 @@
     border-color: var(--navy);
     outline: none;
   }
+
+  /* ---- Panneau animé à droite : terminal de code ---- */
+  .anim-panel{
+    flex: 1;
+    max-width: 420px;
+  }
+
+  .terminal{
+    background: #1e2433;
+    border-radius: 10px;
+    box-shadow: 0 20px 50px rgba(33,46,69,0.35), 0 0 0 1px rgba(130,170,255,0.08);
+    overflow: hidden;
+    font-family: 'Courier New', monospace;
+    animation: glow 4s ease-in-out infinite;
+  }
+
+  @keyframes glow{
+    0%, 100%{ box-shadow: 0 20px 50px rgba(33,46,69,0.35), 0 0 0 1px rgba(130,170,255,0.08), 0 0 20px rgba(130,170,255,0); }
+    50%{ box-shadow: 0 20px 50px rgba(33,46,69,0.35), 0 0 0 1px rgba(130,170,255,0.15), 0 0 30px rgba(130,170,255,0.18); }
+  }
+
+  .terminal-bar{
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    padding: 12px 14px;
+    background: #171c28;
+  }
+
+  .terminal-bar span{
+    width: 11px;
+    height: 11px;
+    border-radius: 50%;
+    display: inline-block;
+  }
+
+  .dot-red{ background: #ff5f56; }
+  .dot-yellow{ background: #ffbd2e; }
+  .dot-green{ background: #27c93f; }
+
+  .terminal-bar .filename{
+    margin-left: 8px;
+    color: #6b7280;
+    font-size: 0.72rem;
+  }
+
+  .terminal-body{
+    padding: 22px 20px;
+    font-size: 0.82rem;
+    line-height: 1.75;
+    min-height: 260px;
+  }
+
+  .terminal-body .line{
+    white-space: pre;
+  }
+
+  .kw{ color: #c792ea; }
+  .fn{ color: #82aaff; }
+  .str{ color: #c3e88d; }
+  .prop{ color: #f78c6c; }
+  .cmt{ color: #6b7280; }
+  .plain{ color: #eceff4; }
+
+  .cursor{
+    display: inline-block;
+    width: 7px;
+    height: 14px;
+    background: #82aaff;
+    margin-left: 2px;
+    vertical-align: middle;
+    animation: blink 0.9s steps(1) infinite;
+  }
+
+  @keyframes reveal{
+    to{ opacity: 1; }
+  }
+
+  @keyframes blink{
+    50%{ opacity: 0; }
+  }
+
+  @media (max-width: 800px){
+    .anim-panel{ display: none; }
+    .layout{ justify-content: center; }
+  }
 </style>
 </head>
 <body>
 
-<div class="card">
-  <h1>Mohamed-Amine Mejjiou</h1>
-  <p class="role">Développeur Web Full-Stack</p>
-  <p class="intro">
-    Basé à Orléans, en formation DWWM à École Coda.
-    Je cherche une alternance pour une durée de 1 ou 2 ans.
-  </p>
+<div class="layout">
 
-  <div class="links">
-    <a class="primary" href="cv.html">Voir le CV</a>
-    <a href="lettre.html">Lettre de motivation</a>
-    <a href="projets.html">Mes projets</a>
+  <div class="card">
+    <h1>Mohamed-Amine Mejjiou</h1>
+    <p class="role">Développeur Web Full-Stack</p>
+    <p class="intro">
+      Basé à Orléans, en formation DWWM à École Coda.
+      Je cherche une alternance pour une durée de 1 ou 2 ans.
+    </p>
+
+    <div class="links">
+      <a class="primary" href="cv.html">Voir le CV</a>
+      <a href="lettre.html">Lettre de motivation</a>
+      <a href="projets.html">Mes projets</a>
+    </div>
+
+    <hr class="divider">
+
+    <div class="contact">
+      <a href="https://github.com/mmejjiou-boop" target="_blank" rel="noopener">GitHub</a>
+      <a href="https://www.linkedin.com/in/mohamed-amine-mejjiou-989b903b6/" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="mailto:mmejjiou@gmail.com">Email</a>
+      <a href="tel:+33782932125">Téléphone</a>
+    </div>
   </div>
 
-  <hr class="divider">
-
-  <div class="contact">
-    <a href="https://github.com/mmejjiou-boop" target="_blank" rel="noopener">GitHub</a>
-    <a href="https://www.linkedin.com/in/mohamed-amine-mejjiou-989b903b6/" target="_blank" rel="noopener">LinkedIn</a>
-    <a href="mailto:mmejjiou@gmail.com">Email</a>
-    <a href="tel:+33782932125">Téléphone</a>
+  <div class="anim-panel" aria-hidden="true">
+    <div class="terminal">
+      <div class="terminal-bar">
+        <span class="dot-red"></span>
+        <span class="dot-yellow"></span>
+        <span class="dot-green"></span>
+        <span class="filename">profil.js</span>
+      </div>
+      <div class="terminal-body" id="termBody"></div>
+    </div>
   </div>
+
 </div>
+
+<script>
+  const codeLines = [
+    [{t:'const ', c:'kw'}, {t:'dev', c:'plain'}, {t:' = ', c:'plain'}, {t:'{', c:'plain'}],
+    [{t:'  nom', c:'prop'}, {t:': ', c:'plain'}, {t:'"Mohamed-Amine"', c:'str'}, {t:',', c:'plain'}],
+    [{t:'  role', c:'prop'}, {t:': ', c:'plain'}, {t:'"Développeur Full-Stack"', c:'str'}, {t:',', c:'plain'}],
+    [{t:'  ville', c:'prop'}, {t:': ', c:'plain'}, {t:'"Orléans"', c:'str'}, {t:',', c:'plain'}],
+    [{t:'  formation', c:'prop'}, {t:': ', c:'plain'}, {t:'"DWWM — École Coda"', c:'str'}, {t:',', c:'plain'}],
+    [{t:'  recherche', c:'prop'}, {t:': ', c:'plain'}, {t:'"Alternance 1-2 ans"', c:'str'}],
+    [{t:'}', c:'plain'}],
+    [{t:'// disponible dès maintenant', c:'cmt'}],
+    [{t:'postuler', c:'fn'}, {t:'(dev)', c:'plain'}],
+  ];
+
+  const body = document.getElementById('termBody');
+  const TYPE_SPEED = 18;
+  const LINE_PAUSE = 120;
+  const END_PAUSE = 2200;
+  const ERASE_SPEED = 6;
+
+  async function typeLine(lineEl, segments){
+    for(const seg of segments){
+      const span = document.createElement('span');
+      span.className = seg.c;
+      lineEl.appendChild(span);
+      for(const char of seg.t){
+        span.textContent += char;
+        await new Promise(r => setTimeout(r, TYPE_SPEED));
+      }
+    }
+  }
+
+  function addCursor(el){
+    const cur = document.createElement('span');
+    cur.className = 'cursor';
+    el.appendChild(cur);
+    return cur;
+  }
+
+  async function runCycle(){
+    body.innerHTML = '';
+    let cursor = null;
+
+    for(const segments of codeLines){
+      if(cursor){ cursor.remove(); }
+      const lineEl = document.createElement('div');
+      lineEl.className = 'line';
+      body.appendChild(lineEl);
+      await typeLine(lineEl, segments);
+      cursor = addCursor(lineEl);
+      await new Promise(r => setTimeout(r, LINE_PAUSE));
+    }
+
+    await new Promise(r => setTimeout(r, END_PAUSE));
+
+    const lines = Array.from(body.children);
+    for(let i = lines.length - 1; i >= 0; i--){
+      const line = lines[i];
+      const spans = Array.from(line.querySelectorAll('span:not(.cursor)'));
+      for(let s = spans.length - 1; s >= 0; s--){
+        const span = spans[s];
+        while(span.textContent.length){
+          span.textContent = span.textContent.slice(0, -1);
+          await new Promise(r => setTimeout(r, ERASE_SPEED));
+        }
+      }
+      line.remove();
+    }
+
+    await new Promise(r => setTimeout(r, 400));
+    runCycle();
+  }
+
+  runCycle();
+</script>
 
 </body>
 </html>
